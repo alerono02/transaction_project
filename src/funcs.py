@@ -1,6 +1,6 @@
 import json
 
-with open('operations.json', 'r') as json_file:
+with open('operations.json', 'r', encoding="utf8") as json_file:
     data = json.load(json_file)
 
 
@@ -12,8 +12,8 @@ def get_transaction(data_):
     :return:
     """
     executed_list = []
-    for trans in reversed(data_):
-        while len(executed_list) != 5:
+    while len(executed_list) != 5:
+        for trans in reversed(data_):
             if trans["state"] == "EXECUTED":
                 executed_list.append(trans)
     return executed_list
