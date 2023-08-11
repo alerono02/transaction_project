@@ -27,13 +27,21 @@ class Transactions:
         return formatted_date
 
     def get_amount(self):
+        """
+        Возвращает сумму и валюту в нужном фомате
+        :return:
+        """
         return self.operationAmount['amount'] + ' ' + self.operationAmount['currency']['name']
 
     def __repr__(self):
+        """
+        Вывод при вызове класса
+        :return:
+        """
         date = self.get_format_date()
         amount = self.get_amount()
         return "{date} {description}\n" \
-               "{from_card} -> {to_card}\n" \
+               "{from_card}-> {to_card}\n" \
                "{amount}".format(date=date,
                                  description=self.description,
                                  from_card=get_masking_card(self.operation_from),
