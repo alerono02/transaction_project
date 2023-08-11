@@ -7,7 +7,7 @@ def load_data(file):
     return data
 
 
-def get_transaction(data):
+def get_transaction(data: list):
     """
     Получает на вход список операций и
     возвращает 5 последних успешных
@@ -19,8 +19,7 @@ def get_transaction(data):
         if len(executed_list) < 5:
             if trans['state'] == "EXECUTED" and 'from' in trans:
                 executed_list.append(trans)
-        else:
-            return executed_list
+    return executed_list
 
 
 def get_masking_card(card):
